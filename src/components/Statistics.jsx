@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Notification } from './Notification';
 
 export class Statistics extends Component {
   render() {
-    return (
+    return this.props.total > 0 ? (
       <div>
         <p>Good: {this.props.good}</p>
         <p>Neutral: {this.props.neutral}</p>
@@ -11,6 +12,8 @@ export class Statistics extends Component {
         <p>Total: {this.props.total}</p>
         <p>Positive feedback: {this.props.positivePercentage}%</p>
       </div>
+    ) : (
+      <Notification message="There is no feedback" />
     );
   }
 }
